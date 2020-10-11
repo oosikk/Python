@@ -1,0 +1,93 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.2.0
+
+jobs:
+  build:
+    working_directory: ~/Python
+    # Reuse Docker container specification given by the node Orb
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          name: install-packages
+          command: pip install -r requirements.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  lint_jehwan:
+    docker:
+      # The primary container is an instance of the first image listed. The job's commands run in this container.
+      - image: cimg/python:3.8
+    steps:
+      # Reuse the workspace from the build job
+      - attach_workspace:
+          at: .
+#       - run:
+#           name: check
+#           command: bash ./.circleci/check.sh LeeJehwan
+      - run:
+          name: lint test
+          command: black --check LeeJehwan/
+  lint_sungwon:
+    docker:
+      # The primary container is an instance of the first image listed. The job's commands run in this container.
+      - image: cimg/python:3.8
+    steps:
+      # Reuse the workspace from the build job
+      - attach_workspace:
+          at: .
+      - run:
+          name: "check"
+          command: bash ./.circleci/check.sh JeongSungWon
+      - run:
+          name: lint test
+          command: black --check JeongSungWon/
+  lint_eunjoung:
+    docker:
+      # The primary container is an instance of the first image listed. The job's commands run in this container.
+      - image: cimg/python:3.8
+    steps:
+      # Reuse the workspace from the build job
+      - attach_workspace:
+          at: .
+      - run:
+          name: "check"
+          command: bash ./.circleci/check.sh ChoiEunjoung
+      - run:
+          name: lint test
+          command: black --check ChoiEunjoung/
+  lint_ys:
+    docker:
+      # The primary container is an instance of the first image listed. The job's commands run in this container.
+      - image: cimg/python:3.8
+    steps:
+      # Reuse the workspace from the build job
+      - attach_workspace:
+          at: .
+      - run:
+          name: "check"
+          command: bash ./.circleci/check.sh ys
+      - run:
+          name: lint test
+          command: black --check ys/
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint_jehwan:
+          requires:
+            - build
+      - lint_sungwon:
+          requires:
+            - build
+      - lint_eunjoung:
+          requires:
+            - build
+      - lint_ys:
+          requires:
+            - build
