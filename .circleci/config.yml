@@ -20,21 +20,21 @@ jobs:
   lint_jehwan:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:current
+      - image: cimg/python:latest
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
           at: .
-      - run:
-          name: check
-          command: bash ./.circleci/check.sh LeeJehwan
+#       - run:
+#           name: check
+#           command: bash ./.circleci/check.sh LeeJehwan
       - run:
           name: lint test
           command: black --check LeeJehwan/
   lint_sungwon:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:current
+      - image: cimg/python:latest
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
@@ -48,7 +48,7 @@ jobs:
   lint_eunjoung:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:current
+      - image: cimg/python:latest
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
@@ -62,7 +62,7 @@ jobs:
   lint_ys:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:current
+      - image: cimg/python:latest
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
