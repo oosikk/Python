@@ -11,13 +11,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: test
-          command: ls -al
-      - run:
-          name: test
-          command: pwd
-      - python/install-packages:
-          pkg-manager: pip
+          name: install-packages
+          command: pip install -r requirements.txt
       - persist_to_workspace:
           root: .
           paths:
