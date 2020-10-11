@@ -25,9 +25,12 @@ jobs:
       # Reuse the workspace from the build job
       - attach_workspace:
           at: .
-#       - run:
-#           name: check
-#           command: bash ./.circleci/check.sh LeeJehwan
+      - run:
+          name: check
+          command: bash ./.circleci/check.sh LeeJehwan
+      - run:
+          name: install-packages
+          command: pip install -r requirements.txt
       - run:
           name: lint test
           command: black --check LeeJehwan/
@@ -43,6 +46,9 @@ jobs:
           name: "check"
           command: bash ./.circleci/check.sh JeongSungWon
       - run:
+          name: install-packages
+          command: pip install -r requirements.txt
+      - run:
           name: lint test
           command: black --check JeongSungWon/
   lint_eunjoung:
@@ -57,6 +63,9 @@ jobs:
           name: "check"
           command: bash ./.circleci/check.sh ChoiEunjoung
       - run:
+          name: install-packages
+          command: pip install -r requirements.txt
+      - run:
           name: lint test
           command: black --check ChoiEunjoung/
   lint_ys:
@@ -70,6 +79,9 @@ jobs:
       - run:
           name: "check"
           command: bash ./.circleci/check.sh ys
+      - run:
+          name: install-packages
+          command: pip install -r requirements.txt
       - run:
           name: lint test
           command: black --check ys/
