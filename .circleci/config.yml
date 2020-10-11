@@ -20,7 +20,7 @@ jobs:
   lint_jehwan:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:latest
+      - image: cimg/python:3.8
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
@@ -34,7 +34,7 @@ jobs:
   lint_sungwon:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:latest
+      - image: cimg/python:3.8
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
@@ -48,7 +48,7 @@ jobs:
   lint_eunjoung:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:latest
+      - image: cimg/python:3.8
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
@@ -62,7 +62,7 @@ jobs:
   lint_ys:
     docker:
       # The primary container is an instance of the first image listed. The job's commands run in this container.
-      - image: cimg/python:latest
+      - image: cimg/python:3.8
     steps:
       # Reuse the workspace from the build job
       - attach_workspace:
