@@ -12,9 +12,12 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-      - python/install-packages:
-          pip-dependency-file: requirements.txt
-          pkg-manager: pip
+      - run:
+          name: test
+          command: ls -al
+      - run:
+          name: test
+          command: pwd
       - persist_to_workspace:
           root: .
           paths:
