@@ -10,14 +10,14 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
       - run:
           name: test
           command: ls -al
       - run:
           name: test
           command: pwd
+      - python/install-packages:
+          pkg-manager: pip
       - persist_to_workspace:
           root: .
           paths:
