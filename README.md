@@ -1,4 +1,6 @@
 <p align="center">
+    <a href="https://circleci.com/gh/Alpha-ka-JS/Python/tree/main">
+        <img src="https://circleci.com/gh/Alpha-ka-JS/Python/tree/main.svg?style=svg" /></a>
     <a href="https://github.com/Alpha-ka-JS/Python/graphs/contributors" alt="Contributors">
         <img src="https://img.shields.io/github/contributors/Alpha-ka-js/Python?&color=brightgreen" /></a>
     <a href="#" alt="Languages">
@@ -32,6 +34,7 @@
 회차 | 일정 | 진도
 ------|------|-----
 1회|2020/10/12|-
+2회|2020/10/19|ch1-ch2
 
 
 # <a name="project-result"></a>Project Results
